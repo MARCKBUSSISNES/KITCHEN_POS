@@ -1,8 +1,0 @@
-.ticket-preview{
-  width:320px;margin:auto;padding:16px;background:#fff;color:#111;border-radius:10px;
-  font-family:'Courier New',monospace
-}
-.ticket-line{display:flex;justify-content:space-between;gap:10px}
-@media print{
-  .no-print{display:none !important;}
-}
