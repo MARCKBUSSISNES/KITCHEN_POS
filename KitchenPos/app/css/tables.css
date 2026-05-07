@@ -1,0 +1,8 @@
+.table-box{padding:0;overflow:hidden}
+.table{
+  width:100%;border-collapse:collapse;background:transparent
+}
+.table th,.table td{
+  text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:14px
+}
+.table th{background:#172235;color:#cbd5e1}
