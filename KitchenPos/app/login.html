@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KitchenOS - Login</title>
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body class="login-body">
+  <main class="login-wrap">
+    <section class="login-card pro-login">
+      <img src="assets/logos/kitchenlogo.png" alt="KitchenOS Logo" class="login-logo" />
+
+      <h1>KitchenOS</h1>
+      <p class="muted">Sistema profesional de cobro para restaurante</p>
+
+      <label class="field-label" for="user">Usuario</label>
+      <input id="user" class="input" placeholder="Ingrese usuario" />
+
+      <label class="field-label" for="pass">Contraseña</label>
+      <input id="pass" class="input" type="password" placeholder="Ingrese contraseña" />
+
+      <button class="btn btn-primary btn-block" onclick="login()">Entrar</button>
+      <p id="loginMsg" class="msg"></p>
+
+      <div class="login-demo">
+        <strong>Demo:</strong><br>
+        admin / 1234
+      </div>
+    </section>
+  </main>
+
+  <script src="js/core/utils.js"></script>
+  <script src="js/core/db.js"></script>
+  <script src="js/core/roles.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="data/seed.js"></script>
+  <script>
+    window.addEventListener("load", async () => {
+      await AppDB.init();
+      await seedApp();
+      const session = Auth.getSession();
+      if (session?.loggedIn) {
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>

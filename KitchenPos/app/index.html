@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KitchenOS</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/tables.css" />
+  <link rel="stylesheet" href="css/tickets.css" />
+  <link rel="stylesheet" href="css/modals.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="main-header">
+      <div class="header-left">
+        <img src="assets/logos/kitchenlogo.png" alt="KitchenOS Logo" class="header-logo" />
+        <div>
+          <h1 class="header-title">Kitchen POS</h1>
+          <p class="header-subtitle">By MarckBusiness</p>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div id="sessionUser" class="session-pill"></div>
+        <button class="btn btn-danger" onclick="Auth.logout()">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section id="app" class="view-root"></section>
+    </main>
+  </div>
+
+  <script src="js/core/utils.js"></script>
+  <script src="js/core/state.js"></script>
+  <script src="js/core/db.js"></script>
+  <script src="js/core/roles.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/core/backup.js"></script>
+  <script src="js/core/printers.js"></script>
+  <script src="js/core/settings.js"></script>
+
+  <script src="js/modules/dashboard.js"></script>
+  <script src="js/modules/mesas.js"></script>
+  <script src="js/modules/productos.js"></script>
+  <script src="js/modules/categorias.js"></script>
+  <script src="js/modules/cocinas.js"></script>
+  <script src="js/modules/comandas.js"></script>
+  <script src="js/modules/precuenta.js"></script>
+  <script src="js/modules/cobros.js"></script>
+  <script src="js/modules/tickets.js"></script>
+  <script src="js/modules/caja.js"></script>
+  <script src="js/modules/cierres.js"></script>
+  <script src="js/modules/historial.js"></script>
+  <script src="js/modules/reportes.js"></script>
+  <script src="js/modules/productos-vendidos.js"></script>
+  <script src="js/modules/usuarios.js"></script>
+  <script src="js/modules/auditoria.js"></script>
+
+  <script src="js/views/dashboard.view.js"></script>
+  <script src="js/views/mesas.view.js"></script>
+  <script src="js/views/llevar.view.js"></script>
+  <script src="js/views/domicilio.view.js"></script>
+  <script src="js/views/orden.view.js"></script>
+  <script src="js/views/productos.view.js"></script>
+  <script src="js/views/productos-vendidos.view.js"></script>
+  <script src="js/views/caja.view.js"></script>
+  <script src="js/views/historial.view.js"></script>
+  <script src="js/views/configuracion.view.js"></script>
+  <script src="js/views/usuarios.view.js"></script>
+
+  <script src="js/print/print-ticket-venta.js"></script>
+  <script src="js/print/print-precuenta.js"></script>
+  <script src="js/print/print-domicilio.js"></script>
+  <script src="js/print/print-cocina.js"></script>
+  <script src="js/print/print-bar.js"></script>
+  <script src="js/print/print-cierre.js"></script>
+  <script src="js/print/print-combo-venta-comandas.js"></script>
+  <script src="js/print/print-domicilio-pack.js"></script>
+  <script src="js/views/cierres.view.js"></script>
+
+  <script src="data/seed.js"></script>
+  <script src="js/core/router.js"></script>
+
+  <script>
+    window.addEventListener("load", async () => {
+      await AppDB.init();
+      await seedApp();
+      Router.bootstrap();
+    });
+  </script>
+</body>
+</html>
